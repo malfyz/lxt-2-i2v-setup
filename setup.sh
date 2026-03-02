@@ -16,4 +16,4 @@ fi
 
 # --- 4. Launch Studio ---
 cd /workspace/ComfyUI
-python main.py --listen --port 8188 --fast-fp4 --use-sage-attention
+python main.py --listen --port 8188
