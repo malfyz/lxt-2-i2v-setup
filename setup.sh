@@ -14,6 +14,12 @@ if [ ! -f "/tmp/models/checkpoints/ltx-2-19b-dev-fp4.safetensors" ]; then
     huggingface-cli download Lightricks/LTX-2 ltx-2-19b-dev-fp4.safetensors --local-dir /tmp/models/checkpoints
 fi
 
+mkdir -p /workspace/ComfyUI/user
+
+# This keeps the 'conflict-prone' settings files local
+rm -rf /workspace/ComfyUI/user/workflows
+ln -s /storage/workflows /workspace/ComfyUI/user/workflows
+
 # --- 4. Launch Studio ---
 cd /workspace/ComfyUI
-python main.py --listen --port 8188
+python main.py --listen --port 8188 --user-directory /workspace/ComfyUI/user
